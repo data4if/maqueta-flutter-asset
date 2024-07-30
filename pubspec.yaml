@@ -27,6 +27,10 @@ flutter:
       fonts:
         - asset: fonts/Poppins-Regular.ttf
         - asset: fonts/Poppins-Bold.ttf
+        - asset: fonts/Poppins-Italic.ttf
+          style: italic
+        - asset: fonts/Poppins-BoldItalic.ttf
+          style: italic
 
   assets:
     - assets/images/brand/

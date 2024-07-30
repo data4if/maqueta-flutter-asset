@@ -1,5 +1,7 @@
-import 'dart:async';
 import 'package:conoce_gama/configuration/core/app_theme.dart';
+import 'package:conoce_gama/presentation/home/widgets/animate_banner.dart';
+import 'package:conoce_gama/presentation/home/widgets/row_one.dart';
+import 'package:conoce_gama/presentation/home/widgets/second_row.dart';
 import 'package:flutter/material.dart';
 
 class AppHome extends StatelessWidget {
@@ -34,7 +36,7 @@ class AppHome extends StatelessWidget {
                   InkWell(
                     child: SizedBox(
                       height: 0.0549 * (width),
-                      width: 0.0549 * (width),
+                      //width: 0.0549 * (width),
                       child: Center(
                         child: Text(
                           '¿Quiénes somos?',
@@ -42,7 +44,7 @@ class AppHome extends StatelessWidget {
                             color: AppTheme.primaryColor,
                             fontSize: 0.0185 * (width),
                             fontFamily: 'alcaldia_fonts',
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
@@ -82,10 +84,14 @@ class AppHome extends StatelessWidget {
               ),
             ],
           ),
-          body: SingleChildScrollView(
+          body: const SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [const MainPage()],
+              children: [
+                MainPage(),
+                OneRow(),
+                SecondRow(),
+              ],
             ),
           ),
         );
