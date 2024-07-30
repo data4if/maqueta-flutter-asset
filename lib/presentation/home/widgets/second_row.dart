@@ -12,41 +12,45 @@ class SecondRow extends StatelessWidget {
         return Center(
           child: Container(
             color: AppTheme.primaryColor,
-            width: width,
-            //height: 0.1263 * width,
-            height: 0.1463 * width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                RichText(
-                  text: TextSpan(
-                    style: TextStyle(
-                      fontFamily: 'alcaldia_fonts',
-                      fontSize: 0.0509 * width,
-                      color: AppTheme.primaryColor,
+                SizedBox(
+                  height: 0.1461 * width,
+                  child: Center(
+                    child: RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontFamily: 'alcaldia_fonts',
+                          fontSize: 0.0509 * width,
+                          color: AppTheme.primaryColor,
+                        ),
+                        children: const [
+                          TextSpan(
+                              text: 'Descubre ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: AppTheme.accentColor,
+                              )),
+                          TextSpan(
+                              text: 'qué hacer en Maracaibo',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white)),
+                        ],
+                      ),
                     ),
-                    children: const [
-                      TextSpan(
-                          text: 'Descubre ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: AppTheme.accentColor,
-                          )),
-                      TextSpan(
-                          text: 'que hacer en maracaibo',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white)),
-                    ],
                   ),
                 ),
-                Expanded(
+                SizedBox(
+                  width: 0.8586 * width,
                   child: Center(
                     child: SizedBox(
-                      width: 0.9603 * (width),
+                      width: 0.9603 * width,
                       child: Text(
                         '¡No te pierdas la oportunidad de sumergirte en la esencia marabina y vivir experiencias inolvidables!',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 0.0244 * width,
