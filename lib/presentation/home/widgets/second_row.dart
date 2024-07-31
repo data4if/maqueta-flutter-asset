@@ -1,4 +1,5 @@
 import 'package:conoce_gama/configuration/core/app_theme.dart';
+import 'package:conoce_gama/presentation/home/widgets/event_list.dart';
 import 'package:flutter/material.dart';
 
 class SecondRow extends StatelessWidget {
@@ -60,6 +61,7 @@ class SecondRow extends StatelessWidget {
                     ),
                   ),
                 ),
+                //const EventList(),
               ],
             ),
           ),

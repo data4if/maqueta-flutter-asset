@@ -36,7 +36,8 @@ flutter:
     - assets/images/brand/
     - assets/images/main/ 
     - assets/images/vector/
-    - assets/images/axis/  
+    - assets/images/axis/
+    - assets/mock_data/
   
 
   

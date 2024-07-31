@@ -1,70 +1,68 @@
-import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
-// TODO: refactorizar, para rendirizar con gradientes y consultar
-// como materializar una transicion que incluya talvez un relempago o algo asociado al sol.
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class EventList extends StatefulWidget {
+  const EventList({Key? key}) : super(key: key);
+
   @override
-  _MainPageState createState() => _MainPageState();
+  _EventListState createState() => _EventListState();
 }
 
-class _MainPageState extends State<MainPage> {
-  int _currentIndex = 0;
-  final List<String> _imageList = [
-    'assets/images/main/main_1.jpeg',
-    'assets/images/main/main_2.jpeg',
-    'assets/images/main/main_3.jpeg',
-  ];
-  void startTimer() {
-    Future.delayed(const Duration(seconds: 5), () {
-      if (mounted) {
-        setState(() {
-          _currentIndex = (_currentIndex + 1) % _imageList.length;
-        });
-      }
-      startTimer();
-    });
-  }
+class _EventListState extends State<EventList> {
+  List<dynamic> data = [];
+  int currentIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    startTimer();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    final String response =
+        await rootBundle.loadString('assets/mock_data/event_mock.json');
+    final List<dynamic> dataList = json.decode(response);
+    setState(() {
+      data = dataList;
+    });
+  }
+
+  void _previousCard() {
+    setState(() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      }
+    });
+  }
+
+  void _nextCard() {
+    setState(() {
+      if (currentIndex < data.length - 1) {
+        currentIndex++;
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      double width = constraints.maxWidth;
-      return Stack(
-        alignment: Alignment.center,
-        children: [
-          AnimatedSwitcher(
-            duration: const Duration(milliseconds: 500),
-            child: Image.asset(
-              _imageList[_currentIndex],
-              height: 0.4907 * (width),
-              width: width,
-              fit: BoxFit.cover,
-              key: ValueKey(_imageList[_currentIndex]),
+      builder: (BuildContext context, BoxConstraints constraints) {
+        // No veo la falla ---
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: _previousCard,
             ),
-            transitionBuilder: (Widget child, Animation<double> animation) {
-              return FadeTransition(
-                opacity: animation,
-                child: child,
-              );
-            },
-          ),
-          Image.asset(
-            width: 0.6766 * (width),
-            height: 0.2771 * (width),
-            "images/brand/conoce.png", // Corregida la ruta de la imagen
-            //fit: BoxFit.cover,
-          )
-        ],
-      );
-    });
+            IconButton(
+              icon: Icon(Icons.arrow_forward),
+              onPressed: _nextCard,
+            ),
+          ],
+        );
+      },
+    );
   }
 }
