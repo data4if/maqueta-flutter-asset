@@ -61,7 +61,9 @@ class SecondRow extends StatelessWidget {
                     ),
                   ),
                 ),
-                //const EventList(),
+                SizedBox(
+                  height: width * 0.0476,
+                ),
               ],
             ),
           ),

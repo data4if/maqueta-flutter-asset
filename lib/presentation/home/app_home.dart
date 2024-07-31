@@ -92,6 +92,10 @@ class AppHome extends StatelessWidget {
                 MainPage(),
                 OneRow(),
                 SecondRow(),
+                EventList(),
+                SizedBox(
+                  height: 0.0496 * width,
+                )
               ],
             ),
           ),
