@@ -1,10 +1,10 @@
 import 'package:conoce_gama/domain/event.dart';
 import 'package:flutter/material.dart';
 
-class EventoWidget extends StatelessWidget {
+class EventWidget extends StatelessWidget {
   final Event event;
 
-  EventoWidget({super.key, required this.event});
+  EventWidget({super.key, required this.event});
 
   @override
   Widget build(BuildContext context) {

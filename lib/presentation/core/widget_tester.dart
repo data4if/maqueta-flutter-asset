@@ -9,24 +9,20 @@ class WidgetTester extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         double width = constraints.maxWidth;
-        return Scaffold(
-          body: Center(
-            child: Container(
-              height: 0.03386 * width,
-              width: 0.2685 * width,
-              //decoration: InputDecoration(fillColor: AppTheme.primaryColor),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                      //height: ,
-                      ),
-                  //OneRow(),
-                  //SecondRow(),
-                  //EventList(),
-                ],
-              ),
-            ),
+        return Container(
+          decoration: const BoxDecoration(
+            color: Colors.amber,
+            shape: BoxShape.rectangle,
+          ),
+          height: 0.03386 * width,
+          width: 0.2685 * width,
+          child: const Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: Text('Prueba'),
+              )
+            ],
           ),
         );
       },

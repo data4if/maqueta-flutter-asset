@@ -62,25 +62,31 @@ class _EventListState extends State<EventList> {
                   Center(
                     child: Container(
                       alignment: Alignment.center,
-                      width: width * (0.0462),
-                      height: width * (0.0462),
+                      width: width * 0.0462,
+                      height: width * 0.0462,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
-                      child: IconButton(
-                        alignment: Alignment.center,
-                        iconSize: width * (0.0462),
-                        color: AppTheme.primaryColor,
-                        icon: Icon(Icons.arrow_back),
-                        onPressed: _previousCard,
+                      child: Center(
+                        child: FittedBox(
+                          child: IconButton(
+                            padding: EdgeInsets.zero,
+                            constraints: BoxConstraints(),
+                            iconSize: width * 0.0362,
+                            color: AppTheme.primaryColor,
+                            icon: Icon(Icons.arrow_back),
+                            onPressed: _previousCard,
+                          ),
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(
                     width: 0.01587 * (width),
                   ),
-                  Expanded(
+                  Padding(
+                    padding: const EdgeInsets.all(0),
                     child: Container(
                       alignment: Alignment.center,
                     ),
@@ -91,18 +97,23 @@ class _EventListState extends State<EventList> {
                   Center(
                     child: Container(
                       alignment: Alignment.center,
-                      width: width * (0.0462),
-                      height: width * (0.0462),
+                      width: width * 0.0462,
+                      height: width * 0.0462,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
-                      child: IconButton(
-                        alignment: Alignment.center,
-                        iconSize: width * (0.0462),
-                        color: AppTheme.primaryColor,
-                        icon: Icon(Icons.arrow_forward),
-                        onPressed: _nextCard,
+                      child: Center(
+                        child: FittedBox(
+                          child: IconButton(
+                            padding: EdgeInsets.zero,
+                            constraints: BoxConstraints(),
+                            iconSize: width * 0.0362,
+                            color: AppTheme.primaryColor,
+                            icon: Icon(Icons.arrow_back),
+                            onPressed: _previousCard,
+                          ),
+                        ),
                       ),
                     ),
                   ),
