@@ -61,6 +61,12 @@ class SecondRow extends StatelessWidget {
                     ),
                   ),
                 ),
+<<<<<<< HEAD
+=======
+                SizedBox(
+                  height: width * 0.0476,
+                ),
+>>>>>>> bc52f81f2390e5715bd82915b09b95d06fe14786
               ],
             ),
           ),
