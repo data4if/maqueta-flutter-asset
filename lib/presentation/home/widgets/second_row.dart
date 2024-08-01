@@ -61,7 +61,6 @@ class SecondRow extends StatelessWidget {
                     ),
                   ),
                 ),
-                //const EventList(),
               ],
             ),
           ),

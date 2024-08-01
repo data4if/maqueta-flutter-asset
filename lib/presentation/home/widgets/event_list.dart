@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:conoce_gama/configuration/core/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -48,19 +49,69 @@ class _EventListState extends State<EventList> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        // No veo la falla ---
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: _previousCard,
+        var width = constraints.maxWidth;
+        return Center(
+          child: SizedBox(
+            height: 0.3386 * width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 0.01587 * (width),
+                ),
+                Center(
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: width * (0.0462),
+                    height: width * (0.0462),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
+                    child: IconButton(
+                      alignment: Alignment.center,
+                      //iconSize: width * (0.0362),
+                      color: AppTheme.primaryColor,
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: _previousCard,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 0.01587 * (width),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                  ),
+                ),
+                SizedBox(
+                  width: 0.01587 * (width),
+                ),
+                Center(
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: width * (0.0462),
+                    height: width * (0.0462),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
+                    child: IconButton(
+                      alignment: Alignment.center,
+                      //iconSize: width * (0.0362),
+                      color: AppTheme.primaryColor,
+                      icon: Icon(Icons.arrow_forward),
+                      onPressed: _nextCard,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 0.01587 * (width),
+                ),
+              ],
             ),
-            IconButton(
-              icon: Icon(Icons.arrow_forward),
-              onPressed: _nextCard,
-            ),
-          ],
+          ),
         );
       },
     );
