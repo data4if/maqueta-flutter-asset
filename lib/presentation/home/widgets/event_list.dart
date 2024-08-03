@@ -13,8 +13,9 @@ class EventList extends StatefulWidget {
 }
 
 class _EventListState extends State<EventList> {
-  int currentIndex = 0;
+  double currentIndex = 0;
   List<Event> eventList = [];
+  ScrollController listScrollController = ScrollController();
 
   @override
   void initState() {
@@ -31,32 +32,54 @@ class _EventListState extends State<EventList> {
     });
   }
 
-  void _previousCard() {
+/*   void _previousCard() {
     setState(() {
       if (currentIndex > 0) {
         currentIndex--;
-        print('back ' + currentIndex.toString());
+        //print('back ' + currentIndex.toString());
+        listScrollController.jumpTo(currentIndex);
       }
     });
-  }
+  } */
 
-  void _nextCard() {
+/*   void _nextCard() {
     setState(() {
       if (currentIndex < eventList.length - 1) {
         currentIndex++;
-        print('next ' + currentIndex.toString());
+        //print('next ' + currentIndex.toString());
+        listScrollController.jumpTo(currentIndex);
       }
     });
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         var width = constraints.maxWidth;
+        // Function to scroll left
+        void _scrollLeft() {
+          listScrollController.animateTo(
+            listScrollController.offset -
+                0.4 * width, // Adjust the value as needed
+            duration: Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        }
+
+        // Function to scroll right
+        void _scrollRight() {
+          listScrollController.animateTo(
+            listScrollController.offset +
+                0.4 * width, // Adjust the value as needed
+            duration: Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        }
+
         return Center(
           child: SizedBox(
-              height: 0.3386 * width,
+              height: 0.5 * width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -80,7 +103,7 @@ class _EventListState extends State<EventList> {
                             iconSize: width * 0.0362,
                             color: AppTheme.primaryColor,
                             icon: Icon(Icons.arrow_back),
-                            onPressed: _previousCard,
+                            onPressed: _scrollLeft,
                           ),
                         ),
                       ),
@@ -93,6 +116,7 @@ class _EventListState extends State<EventList> {
                     child: eventList.isEmpty
                         ? const Center(child: CircularProgressIndicator())
                         : ListView.builder(
+                            controller: listScrollController,
                             physics: const NeverScrollableScrollPhysics(),
                             scrollDirection: Axis.horizontal,
                             itemCount: eventList.length,
@@ -100,7 +124,7 @@ class _EventListState extends State<EventList> {
                               return SizedBox(
                                   width: 0.4 * width,
                                   child: EventWidget(
-                                    event: eventList[currentIndex],
+                                    event: eventList[index],
                                     width: width,
                                   ));
                             }),
@@ -125,7 +149,7 @@ class _EventListState extends State<EventList> {
                             iconSize: width * 0.0362,
                             color: AppTheme.primaryColor,
                             icon: Icon(Icons.arrow_forward),
-                            onPressed: _nextCard,
+                            onPressed: _scrollRight,
                           ),
                         ),
                       ),
