@@ -12,15 +12,15 @@ class EventWidget extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         //var width = constraints.maxWidth;
         return Container(
-          width: 0.2685 * width,
-          height: 0.3386 * width,
+          width: (406 / 1512) * width,
+          height: (512 / 1512) * width,
           child: Center(
             child: Text(
               event.title,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.black),
             ),
           ),
-          decoration: const BoxDecoration(color: Colors.purple, boxShadow: [
+          decoration: const BoxDecoration(color: Colors.white, boxShadow: [
             BoxShadow(
               color: Colors.black54, // Shadow color
               blurRadius: 10.0, // Shadow blur radius

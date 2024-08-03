@@ -61,7 +61,7 @@ class _EventListState extends State<EventList> {
         void _scrollLeft() {
           listScrollController.animateTo(
             listScrollController.offset -
-                0.4 * width, // Adjust the value as needed
+                (406 / 1512) * width, // Adjust the value as needed
             duration: Duration(milliseconds: 300),
             curve: Curves.easeInOut,
           );
@@ -71,12 +71,13 @@ class _EventListState extends State<EventList> {
         void _scrollRight() {
           listScrollController.animateTo(
             listScrollController.offset +
-                0.4 * width, // Adjust the value as needed
+                (406 / 1512) * width, // Adjust the value as needed
             duration: Duration(milliseconds: 300),
             curve: Curves.easeInOut,
           );
         }
 
+        // Control del objeto a renerizar
         return Center(
           child: SizedBox(
               height: 0.5 * width,
@@ -109,28 +110,47 @@ class _EventListState extends State<EventList> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 0.01587 * (width),
+                  Container(
+                    width: (13 / 1512) * width,
+                    decoration: BoxDecoration(color: AppTheme.primaryColor),
                   ),
                   Expanded(
+                    //width: ((406 * 3 + 4 * 26) / (1512)) * width,
+                    //height: (406 / 1512) * width,
                     child: eventList.isEmpty
                         ? const Center(child: CircularProgressIndicator())
                         : ListView.builder(
                             controller: listScrollController,
-                            physics: const NeverScrollableScrollPhysics(),
+                            //physics: const NeverScrollableScrollPhysics(),
                             scrollDirection: Axis.horizontal,
                             itemCount: eventList.length,
                             itemBuilder: (context, index) {
-                              return SizedBox(
-                                  width: 0.4 * width,
-                                  child: EventWidget(
-                                    event: eventList[index],
-                                    width: width,
-                                  ));
+                              return Row(
+                                children: [
+                                  Container(
+                                    width: (13 / 1512) * width,
+                                    decoration: BoxDecoration(
+                                        color: AppTheme.primaryColor),
+                                  ),
+                                  SizedBox(
+                                      width: (406 / 1512) * width,
+                                      height: (512 / 1512) * width,
+                                      child: EventWidget(
+                                        event: eventList[index],
+                                        width: width,
+                                      )),
+                                  Container(
+                                    width: (13 / 1512) * width,
+                                    decoration: BoxDecoration(
+                                        color: AppTheme.primaryColor),
+                                  ),
+                                ],
+                              );
                             }),
                   ),
-                  SizedBox(
-                    width: 0.01587 * (width),
+                  Container(
+                    width: (13 / 1512) * width,
+                    decoration: BoxDecoration(color: AppTheme.primaryColor),
                   ),
                   Center(
                     child: Container(
