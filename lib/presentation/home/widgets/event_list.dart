@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:conoce_gama/configuration/core/app_theme.dart';
+import 'package:conoce_gama/domain/event.dart';
+import 'package:conoce_gama/presentation/home/widgets/event_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -11,8 +13,8 @@ class EventList extends StatefulWidget {
 }
 
 class _EventListState extends State<EventList> {
-  List<dynamic> data = [];
   int currentIndex = 0;
+  List<Event> eventList = [];
 
   @override
   void initState() {
@@ -22,10 +24,10 @@ class _EventListState extends State<EventList> {
 
   Future<void> _loadData() async {
     final String response =
-        await rootBundle.loadString('assets/mock_data/event_mock.json');
-    final List<dynamic> dataList = json.decode(response);
+        await rootBundle.loadString('assets/json/events.json');
+    final List<dynamic> EventJsonList = json.decode(response);
     setState(() {
-      data = dataList;
+      eventList = EventJsonList.map((json) => Event.fromJson(json)).toList();
     });
   }
 
@@ -33,14 +35,16 @@ class _EventListState extends State<EventList> {
     setState(() {
       if (currentIndex > 0) {
         currentIndex--;
+        print('back ' + currentIndex.toString());
       }
     });
   }
 
   void _nextCard() {
     setState(() {
-      if (currentIndex < data.length - 1) {
+      if (currentIndex < eventList.length - 1) {
         currentIndex++;
+        print('next ' + currentIndex.toString());
       }
     });
   }
@@ -85,11 +89,21 @@ class _EventListState extends State<EventList> {
                   SizedBox(
                     width: 0.01587 * (width),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(0),
-                    child: Container(
-                      alignment: Alignment.center,
-                    ),
+                  Expanded(
+                    child: eventList.isEmpty
+                        ? const Center(child: CircularProgressIndicator())
+                        : ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            itemCount: eventList.length,
+                            itemBuilder: (context, index) {
+                              return SizedBox(
+                                  width: 0.4 * width,
+                                  child: EventWidget(
+                                    event: eventList[currentIndex],
+                                    width: width,
+                                  ));
+                            }),
                   ),
                   SizedBox(
                     width: 0.01587 * (width),
@@ -110,8 +124,8 @@ class _EventListState extends State<EventList> {
                             constraints: BoxConstraints(),
                             iconSize: width * 0.0362,
                             color: AppTheme.primaryColor,
-                            icon: Icon(Icons.arrow_back),
-                            onPressed: _previousCard,
+                            icon: Icon(Icons.arrow_forward),
+                            onPressed: _nextCard,
                           ),
                         ),
                       ),

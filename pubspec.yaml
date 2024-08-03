@@ -40,7 +40,7 @@ flutter:
     - assets/images/main/ 
     - assets/images/vector/
     - assets/images/axis/
-    - assets/mock_data/
+    - assets/json/
   
 
   

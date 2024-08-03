@@ -3,53 +3,33 @@ import 'package:flutter/material.dart';
 
 class EventWidget extends StatelessWidget {
   final Event event;
-
-  EventWidget({super.key, required this.event});
+  final double width;
+  EventWidget({super.key, required this.event, required this.width});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // Imagen de fondo
-        Image.network(
-          event.imageUrl,
-          fit: BoxFit.cover,
-        ),
-        // Box transparente superior (por ejemplo, para el título)
-        Positioned(
-          top: 16,
-          left: 16,
-          right: 16,
-          child: Container(
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(8),
-            ),
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        //var width = constraints.maxWidth;
+        return Container(
+          width: 0.2685 * width,
+          height: 0.3386 * width,
+          child: Center(
             child: Text(
               event.title,
               style: TextStyle(color: Colors.white),
             ),
           ),
-        ),
-        // Box transparente inferior (por ejemplo, para la descripción)
-        Positioned(
-          bottom: 16,
-          left: 16,
-          right: 16,
-          child: Container(
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(8),
+          decoration: const BoxDecoration(color: Colors.purple, boxShadow: [
+            BoxShadow(
+              color: Colors.black54, // Shadow color
+              blurRadius: 10.0, // Shadow blur radius
+              spreadRadius: 2.0, // Shadow spread radius
+              offset: Offset(0, 2), // Changes the position of the shadow
             ),
-            child: Text(
-              event.title,
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-      ],
+          ]),
+        );
+      },
     );
   }
 }
