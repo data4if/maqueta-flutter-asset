@@ -20,7 +20,7 @@ class AppHome extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.asset(
-                  "images/brand/fomutur.jpg", // Corregida la ruta de la imagen
+                  "images/brand/fomutur.png", // Corregida la ruta de la imagen
                   width: 0.1448 * (width),
                   height: 0.0397 * (width),
                   //fit: BoxFit.contain,

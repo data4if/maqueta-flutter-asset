@@ -56,38 +56,60 @@ class EventWidget extends StatelessWidget {
                         decoration: const BoxDecoration(
                           color: AppTheme.greentColorNoOpacity,
                         )),
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Text(
-                        event.title,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontFamily: 'alcaldia_fonts',
-                          color: AppTheme.primaryColor,
-                          fontSize: (26 / 1512) * width,
-                          fontWeight: FontWeight.bold,
+                    Container(
+                      height: (70 / 1512) * width,
+                      child: Padding(
+                        padding: const EdgeInsets.all(5),
+                        child: Text(
+                          event.title,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontFamily: 'alcaldia_fonts',
+                            height: 0.9,
+                            color: AppTheme.primaryColor,
+                            fontSize: (26 / 1512) * width,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                    Text(
-                      'Fecha: ' + event.date,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontFamily: 'alcaldia_fonts',
-                        color: Colors.black,
-                        fontSize: (20 / 1512) * width,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                    Text(
-                      'Lugar: ' + event.place,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontFamily: 'alcaldia_fonts',
-                        color: Colors.black,
-                        fontSize: (20 / 1512) * width,
-                        fontWeight: FontWeight.normal,
-                      ),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: (45 / 1512) * width,
+                          child: Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Text(
+                              'Fecha: ' + event.date,
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontFamily: 'alcaldia_fonts',
+                                color: Colors.black,
+                                fontSize: (20 / 1512) * width,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: (45 / 1512) * width,
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text(
+                              'Lugar: ' + event.place,
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontFamily: 'alcaldia_fonts',
+                                color: Colors.black,
+                                fontSize: (20 / 1512) * width,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     )
                   ],
                 ),
