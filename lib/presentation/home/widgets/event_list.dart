@@ -80,7 +80,7 @@ class _EventListState extends State<EventList> {
         // Control del objeto a renerizar
         return Center(
           child: SizedBox(
-              height: 0.5 * width,
+              //height: 0.5 * width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
