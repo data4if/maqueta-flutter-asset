@@ -15,6 +15,7 @@ class EventList extends StatefulWidget {
 class _EventListState extends State<EventList> {
   int currentIndex = 0;
   List<Event> eventList = [];
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -31,41 +32,40 @@ class _EventListState extends State<EventList> {
     });
   }
 
-  void _previousCard() {
-    setState(() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        print('back ' + currentIndex.toString());
-      }
-    });
-  }
-
-  void _nextCard() {
-    setState(() {
-      if (currentIndex < eventList.length - 1) {
-        currentIndex++;
-        print('next ' + currentIndex.toString());
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
+        // widht in real time.
         var width = constraints.maxWidth;
+        // Function to scroll right
+        void _scrollLeft() {
+          _scrollController.animateTo(
+            _scrollController.offset -
+                (432 / 1512) * width, // Adjust the value as needed
+            duration: Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        }
+
+        // Function to scroll right
+        void _scrollRight() {
+          _scrollController.animateTo(
+            _scrollController.offset +
+                (432 / 1512) * width, // Adjust the value as needed
+            duration: Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        }
+
         return Center(
           child: SizedBox(
-<<<<<<< HEAD
-              //height: 0.5 * width,
-=======
               height: 0.3386 * width,
->>>>>>> parent of bf0f3e8 (movimiento de la lista sin chiste pixel control)
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: 0.01587 * (width),
+                    width: (25 / 1512) * (width),
                   ),
                   Center(
                     child: Container(
@@ -76,41 +76,38 @@ class _EventListState extends State<EventList> {
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
-                      child: Center(
-                        child: FittedBox(
-                          child: IconButton(
-                            padding: EdgeInsets.zero,
-                            constraints: BoxConstraints(),
-                            iconSize: width * 0.0362,
-                            color: AppTheme.primaryColor,
-                            icon: Icon(Icons.arrow_back),
-                            onPressed: _previousCard,
-                          ),
+                      child: FittedBox(
+                        child: IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints: BoxConstraints(),
+                          iconSize: width * 0.0362,
+                          color: AppTheme.primaryColor,
+                          icon: Icon(Icons.arrow_back),
+                          onPressed: _scrollLeft,
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: 0.01587 * (width),
+                    width: (25 / 1512) * (width),
                   ),
                   Expanded(
                     child: eventList.isEmpty
                         ? const Center(child: CircularProgressIndicator())
                         : ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
+                            controller: _scrollController,
                             scrollDirection: Axis.horizontal,
                             itemCount: eventList.length,
                             itemBuilder: (context, index) {
-                              return SizedBox(
-                                  width: 0.4 * width,
-                                  child: EventWidget(
-                                    event: eventList[currentIndex],
-                                    width: width,
-                                  ));
+                              return EventWidget(
+                                event: eventList[index],
+                                width: width,
+                              );
                             }),
                   ),
                   SizedBox(
-                    width: 0.01587 * (width),
+                    width: (25 / 1512) * (width),
                   ),
                   Center(
                     child: Container(
@@ -129,14 +126,14 @@ class _EventListState extends State<EventList> {
                             iconSize: width * 0.0362,
                             color: AppTheme.primaryColor,
                             icon: Icon(Icons.arrow_forward),
-                            onPressed: _nextCard,
+                            onPressed: _scrollRight,
                           ),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: 0.01587 * (width),
+                    width: (25 / 1512) * (width),
                   ),
                 ],
               )),

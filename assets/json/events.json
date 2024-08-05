@@ -47,12 +47,5 @@
     "date": "2024-02-25",
     "place": "Centro de Convenciones",
     "link": "https://www.example.com/evento7"
-  },
-  {
-    "title": "Feria Gastronómica Internacional",
-    "imageUrl": "https://example.com/images/evento7.jpg",
-    "date": "2024-02-25",
-    "place": "Centro de Convenciones",
-    "link": "https://www.example.com/evento7"
   }
 ]
