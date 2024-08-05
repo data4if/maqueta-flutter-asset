@@ -70,8 +70,8 @@ class _EventListState extends State<EventList> {
                   Center(
                     child: Container(
                       alignment: Alignment.center,
-                      width: width * 0.0462,
-                      height: width * 0.0462,
+                      //width: width * 0.0462,
+                      //height: width * 0.0462,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
@@ -80,7 +80,7 @@ class _EventListState extends State<EventList> {
                         child: IconButton(
                           padding: EdgeInsets.zero,
                           constraints: BoxConstraints(),
-                          iconSize: width * 0.0362,
+                          iconSize: width * (80 / 1542),
                           color: AppTheme.primaryColor,
                           icon: Icon(Icons.arrow_back),
                           onPressed: _scrollLeft,
@@ -112,8 +112,8 @@ class _EventListState extends State<EventList> {
                   Center(
                     child: Container(
                       alignment: Alignment.center,
-                      width: width * 0.0462,
-                      height: width * 0.0462,
+                      //width: width * 0.0462,
+                      //height: width * 0.0462,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
@@ -123,7 +123,7 @@ class _EventListState extends State<EventList> {
                           child: IconButton(
                             padding: EdgeInsets.zero,
                             constraints: BoxConstraints(),
-                            iconSize: width * 0.0362,
+                            iconSize: width * (80 / 1542),
                             color: AppTheme.primaryColor,
                             icon: Icon(Icons.arrow_forward),
                             onPressed: _scrollRight,
