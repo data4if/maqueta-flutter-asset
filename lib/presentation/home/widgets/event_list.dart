@@ -80,7 +80,7 @@ class _EventListState extends State<EventList> {
                         child: IconButton(
                           padding: EdgeInsets.zero,
                           constraints: BoxConstraints(),
-                          iconSize: width * (80 / 1542),
+                          iconSize: width * (60 / 1542),
                           color: AppTheme.primaryColor,
                           icon: Icon(Icons.arrow_back),
                           onPressed: _scrollLeft,
@@ -123,7 +123,7 @@ class _EventListState extends State<EventList> {
                           child: IconButton(
                             padding: EdgeInsets.zero,
                             constraints: BoxConstraints(),
-                            iconSize: width * (80 / 1542),
+                            iconSize: width * (60 / 1542),
                             color: AppTheme.primaryColor,
                             icon: Icon(Icons.arrow_forward),
                             onPressed: _scrollRight,
