@@ -1,6 +1,7 @@
 import 'package:conoce_gama/configuration/core/app_theme.dart';
 import 'package:conoce_gama/domain/event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class EventWidget extends StatelessWidget {
   final Event event;
@@ -112,6 +113,36 @@ class EventWidget extends StatelessWidget {
                         ),
                       ],
                     ),
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            openURL(event.link);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 5,
+                              top: 10,
+                            ),
+                            child: Text(
+                              'Link red social',
+                              style: TextStyle(
+                                fontSize: (20 / 1512) * width,
+                                fontFamily: 'alcaldia_font',
+                                color: AppTheme.greentColorOpacity,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ),
+                        /* Image.asset(
+                          "images/brand/sun_spiral.png",
+                          width: (5 / 1512) * width,
+                          height: (5 / 1512) * width,
+                          //fit: BoxFit.cover,
+                        ) */
+                      ],
+                    )
                   ],
                 ),
               ),
@@ -123,5 +154,9 @@ class EventWidget extends StatelessWidget {
         );
       },
     );
+  }
+
+  void openURL(String url) {
+    SystemChannels.platform.invokeMethod('SystemNavigator.pop', url);
   }
 }
