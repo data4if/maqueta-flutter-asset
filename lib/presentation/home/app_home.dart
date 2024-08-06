@@ -1,7 +1,8 @@
 import 'package:conoce_gama/configuration/core/app_theme.dart';
 import 'package:conoce_gama/presentation/home/widgets/animate_banner.dart';
+import 'package:conoce_gama/presentation/home/widgets/axis_list.dart';
 import 'package:conoce_gama/presentation/home/widgets/event_list.dart';
-import 'package:conoce_gama/presentation/home/widgets/row_one.dart';
+import 'package:conoce_gama/presentation/home/widgets/first_row.dart';
 import 'package:conoce_gama/presentation/home/widgets/second_row.dart';
 import 'package:flutter/material.dart';
 
@@ -96,6 +97,7 @@ class AppHome extends StatelessWidget {
                 SizedBox(
                   height: 0.0496 * width,
                 ),
+                AxisList(),
               ],
             ),
           ),
