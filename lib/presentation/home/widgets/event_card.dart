@@ -56,7 +56,7 @@ class EventWidget extends StatelessWidget {
                         decoration: const BoxDecoration(
                           color: AppTheme.greentColorNoOpacity,
                         )),
-                    Container(
+                    SizedBox(
                       height: (70 / 1512) * width,
                       child: Padding(
                         padding: const EdgeInsets.all(5),
@@ -77,16 +77,17 @@ class EventWidget extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: (45 / 1512) * width,
+                        SizedBox(
+                          //height: (45 / 1512) * width,
                           child: Padding(
-                            padding: const EdgeInsets.all(5),
+                            padding: const EdgeInsets.only(left: 5),
                             child: Text(
                               'Fecha: ' + event.date,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontFamily: 'alcaldia_fonts',
                                 color: Colors.black,
+                                height: 0.9,
                                 fontSize: (20 / 1512) * width,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -94,9 +95,9 @@ class EventWidget extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: (45 / 1512) * width,
+                          //height: (45 / 1512) * width,
                           child: Padding(
-                            padding: const EdgeInsets.all(5.0),
+                            padding: const EdgeInsets.only(left: 5),
                             child: Text(
                               'Lugar: ' + event.place,
                               textAlign: TextAlign.left,
@@ -110,7 +111,7 @@ class EventWidget extends StatelessWidget {
                           ),
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
