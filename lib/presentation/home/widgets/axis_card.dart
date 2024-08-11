@@ -1,8 +1,6 @@
 import 'package:conoce_gama/configuration/core/app_theme.dart';
 import 'package:conoce_gama/domain/axi.dart';
-import 'package:conoce_gama/domain/event.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class AxisCard extends StatelessWidget {
   final Axi axi;
