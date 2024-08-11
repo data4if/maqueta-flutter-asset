@@ -90,14 +90,14 @@ class AppHome extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                MainPage(),
-                OneRow(),
-                SecondRow(),
-                EventList(),
+                const MainPage(),
+                const OneRow(),
+                const SecondRow(),
+                const EventList(),
                 SizedBox(
                   height: 0.0496 * width,
                 ),
-                AxisList(),
+                const AxisList(),
               ],
             ),
           ),

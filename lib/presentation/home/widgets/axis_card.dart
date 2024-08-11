@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class AxisCard extends StatelessWidget {
   final Axi axi;
   final double width;
-  AxisCard({super.key, required this.axi, required this.width});
+  const AxisCard({super.key, required this.axi, required this.width});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 class EventList extends StatefulWidget {
-  const EventList({Key? key}) : super(key: key);
+  const EventList({super.key});
 
   @override
   _EventListState createState() => _EventListState();
@@ -39,21 +39,21 @@ class _EventListState extends State<EventList> {
         // widht in real time.
         var width = constraints.maxWidth;
         // Function to scroll right
-        void _scrollLeft() {
+        void scrollLeft() {
           _scrollController.animateTo(
             _scrollController.offset -
                 (432 / 1512) * width, // Adjust the value as needed
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
           );
         }
 
         // Function to scroll right
-        void _scrollRight() {
+        void scrollRight() {
           _scrollController.animateTo(
             _scrollController.offset +
                 (432 / 1512) * width, // Adjust the value as needed
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
           );
         }
@@ -72,18 +72,18 @@ class _EventListState extends State<EventList> {
                       alignment: Alignment.center,
                       //width: width * 0.0462,
                       //height: width * 0.0462,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
                       child: FittedBox(
                         child: IconButton(
                           padding: EdgeInsets.zero,
-                          constraints: BoxConstraints(),
+                          constraints: const BoxConstraints(),
                           iconSize: width * (60 / 1542),
                           color: AppTheme.primaryColor,
-                          icon: Icon(Icons.arrow_back),
-                          onPressed: _scrollLeft,
+                          icon: const Icon(Icons.arrow_back),
+                          onPressed: scrollLeft,
                         ),
                       ),
                     ),
@@ -114,7 +114,7 @@ class _EventListState extends State<EventList> {
                       alignment: Alignment.center,
                       //width: width * 0.0462,
                       //height: width * 0.0462,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
@@ -122,11 +122,11 @@ class _EventListState extends State<EventList> {
                         child: FittedBox(
                           child: IconButton(
                             padding: EdgeInsets.zero,
-                            constraints: BoxConstraints(),
+                            constraints: const BoxConstraints(),
                             iconSize: width * (60 / 1542),
                             color: AppTheme.primaryColor,
-                            icon: Icon(Icons.arrow_forward),
-                            onPressed: _scrollRight,
+                            icon: const Icon(Icons.arrow_forward),
+                            onPressed: scrollRight,
                           ),
                         ),
                       ),

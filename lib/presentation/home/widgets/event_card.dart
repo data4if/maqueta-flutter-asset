@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class EventWidget extends StatelessWidget {
   final Event event;
   final double width;
-  EventWidget({super.key, required this.event, required this.width});
+  const EventWidget({super.key, required this.event, required this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class EventWidget extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 5),
                             child: Text(
-                              'Fecha: ' + event.date,
+                              'Fecha: ${event.date}',
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontFamily: 'alcaldia_fonts',
@@ -100,7 +100,7 @@ class EventWidget extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 5),
                             child: Text(
-                              'Lugar: ' + event.place,
+                              'Lugar: ${event.place}',
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontFamily: 'alcaldia_fonts',

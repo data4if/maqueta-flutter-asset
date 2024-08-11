@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 class AxisList extends StatefulWidget {
-  const AxisList({Key? key}) : super(key: key);
+  const AxisList({super.key});
 
   @override
   _AxisListState createState() => _AxisListState();
@@ -48,7 +48,7 @@ class _AxisListState extends State<AxisList> {
 
         return Container(
           height: (800 / 1512) * width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
           ),
           child: Center(

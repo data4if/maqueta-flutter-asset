@@ -37,7 +37,7 @@ class OneRow extends StatelessWidget {
                           fontSize: 0.0211 * width,
                           color: AppTheme.primaryColor,
                         ),
-                        children: [
+                        children: const [
                           TextSpan(
                             text: 'Conoce la ciudad y su historia ',
                           ),
