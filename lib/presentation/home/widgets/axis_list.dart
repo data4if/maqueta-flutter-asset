@@ -29,10 +29,9 @@ class _AxisListState extends State<AxisList> {
     try {
       final List<dynamic> AxiJsonList = json.decode(response);
       setState(() {
-        print('asignacion ALTA ESTA ENTRANDO');
         axiList = AxiJsonList.map((json) => Axi.fromJson(json)).toList();
         if (axiList.isNotEmpty) {
-          print('asignacion Lista COMPLETA');
+          print(axiList);
         }
       });
     } on Exception catch (e) {
