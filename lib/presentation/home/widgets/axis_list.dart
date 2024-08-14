@@ -27,7 +27,6 @@ class _AxisListState extends State<AxisList> {
   Future<void> _loadData() async {
     final String response =
         await rootBundle.loadString('assets/json/axis.json');
-    print(response);
     try {
       final List<dynamic> AxiJsonList = json.decode(response);
       setState(() {
