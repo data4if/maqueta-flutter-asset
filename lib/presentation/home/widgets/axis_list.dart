@@ -19,7 +19,9 @@ class _AxisListState extends State<AxisList> {
   @override
   void initState() {
     super.initState();
-    _loadData();
+    if (mounted) {
+      _loadData();
+    }
   }
 
   Future<void> _loadData() async {
@@ -46,7 +48,7 @@ class _AxisListState extends State<AxisList> {
         var width = constraints.maxWidth;
 
         return Container(
-          height: (800 / 1512) * width,
+          height: (900 / 1512) * width,
           decoration: const BoxDecoration(
             color: Colors.white,
           ),
